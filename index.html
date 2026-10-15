@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="WHIT3CHOCL3T's Xbox player hub. Overwatch console ranks and clearly labelled game-data availability in an LCARS-inspired display.">
+<meta name="description" content="WHIT3CHOCL3T's Xbox player hub. Overwatch console ranks and verified Gears: E-Day playtime and achievements in an LCARS-inspired display.">
 <meta name="referrer" content="no-referrer">
 <title>WHIT3CHOCL3T · Aegis Player Telemetry</title>
 <style>
@@ -51,18 +51,36 @@
     </div>
    </section>
    <section class="game-grid" id="other-games" aria-label="Other game connections">
-    <article class="game"><span class="index">03 // XBOX</span><h3>GEARS OF WAR: E-DAY</h3><span class="status">NO VERIFIED AUTOMATIC FEED</span><p>Playlist ranks and progression are not connected. Missing data is not a zero rank.</p><button data-view="gears">VIEW CONNECTION DETAILS →</button></article>
+    <article class="game"><span class="index">03 // XBOX</span><h3>GEARS OF WAR: E-DAY</h3><span class="status">XBOX DATA · PUBLISHED SNAPSHOT</span><p id="gears-overview">Loading the verified Xbox snapshot. Ranks and player level are not supplied.</p><button data-view="gears">VIEW E-DAY RECORD →</button></article>
     <article class="game"><span class="index">04 // XBOX</span><h3>DIABLO IV</h3><span class="status">CHARACTER DATA NOT CONNECTED</span><p>Character levels and Paragon await a usable source. No character values are assumed.</p><button data-view="diablo4">VIEW CONNECTION DETAILS →</button></article>
     <article class="game"><span class="index">05 // XBOX</span><h3>DIABLO II: RESURRECTED</h3><span class="status">LADDER LINK · NOT A DATA FEED</span><p>External ladder information is available. This hub does not import or republish it.</p><button data-view="d2r">VIEW CONNECTION DETAILS →</button></article>
    </section>
+   <section id="gears-panel" class="datapanel" hidden aria-labelledby="gears-heading">
+    <div class="panel-head" style="background:var(--orange)"><h3 id="gears-heading">GEARS OF WAR: E-DAY</h3><span class="code">XBOX RECORD // 03</span></div>
+    <div class="panel-body">
+     <div class="source-row"><div class="source-name"><div><strong>Whit3chocl3t</strong><small>Xbox-reported title statistics · via OpenXBL</small></div></div><span class="badge" id="gears-badge">PUBLISHED SNAPSHOT</span></div>
+     <div class="detail-grid" style="margin-top:0" aria-label="Verified E-Day statistics">
+      <div class="rank"><div class="rank-label">RECORDED PLAYTIME</div><div class="rank-value" id="gears-playtime">—</div><div class="rank-note">Xbox MinutesPlayed · not a live session timer</div></div>
+      <div class="rank"><div class="rank-label">ACHIEVEMENTS UNLOCKED</div><div class="rank-value" id="gears-achievements">—</div><div class="rank-note">Unlocked count · not player level</div></div>
+      <div class="rank"><div class="rank-label">GAME GAMERSCORE</div><div class="rank-value" id="gears-gamerscore">—</div><div class="rank-note">Earned / reported available gamerscore</div></div>
+     </div>
+     <div class="telemetry"><div><div class="datum-label">XBOX DATA RETRIEVED</div><div class="datum-value" id="gears-checked">Not available</div></div><div><div class="datum-label">LAST PLAYED · REPORTED BY XBOX</div><div class="datum-value" id="gears-last-played">Not available</div></div></div>
+     <p class="notice" id="gears-update-status" role="status">This is a published snapshot, not an automatic or live feed. Reloading this page does not query Xbox. Values change when the owner retrieves and publishes a newer snapshot. The source did not supply an update timestamp for these individual stats.</p>
+     <h3 style="font:24px var(--condensed);letter-spacing:1px;margin:27px 0 0;color:var(--lilac)">RANK &amp; LEVEL · NOT RETURNED BY SOURCE</h3>
+     <div class="detail-grid" aria-label="Unavailable E-Day progression"><div class="empty-field">Playlist rank<b>—</b></div><div class="empty-field">Skill division<b>—</b></div><div class="empty-field">Player level / Re-Up<b>—</b></div></div>
+     <p class="intro">The tested Xbox statistics query returned playtime, but no ranked division, player level, or Re-Up. These are unavailable—not zero or unranked. Achievement progress is never substituted for game progression.</p>
+     <div class="panel-links"><a href="https://www.gearsofwar.com/en-us/news/multiplayer/" target="_blank" rel="noopener noreferrer">Official multiplayer details ↗</a><a href="https://xbl.io/" target="_blank" rel="noopener noreferrer">Data provider: OpenXBL ↗</a></div>
+    </div>
+   </section>
    <section id="game-detail" class="detail" hidden aria-label="Selected game connection"><div class="datapanel"><div class="panel-head"><h3 id="detail-name"></h3><span class="code">CONNECTION STATUS</span></div><div class="panel-body"><span class="badge" id="detail-status"></span><div class="detail-grid" id="detail-fields"></div><h3>NO GUESSWORK ON THE DISPLAY.</h3><p id="detail-text"></p><a class="button secondary" id="detail-link" target="_blank" rel="noopener noreferrer"></a><p style="font-size:12px">A dash means unavailable—not level zero, an unranked account, or a fallen character.</p></div></div></section>
-   <details class="explainer"><summary>ABOUT THIS DISPLAY &amp; ITS DATA</summary><div class="inside"><p><strong>What is automatic?</strong> Overwatch console ranks are requested directly from the public OverFast API. This is a community service reading Blizzard's public career pages, not a live connection to the Xbox. PC ranks are never substituted.</p><p><strong>What does the season mean?</strong> The displayed season is the identifier reported by the API for the last competitive season played. It is not independently confirmed as the active season, and the identifier may differ from the in-game label.</p><p><strong>Why can a fresh lookup show older stats?</strong> Blizzard and the data provider cache updates. The profile-update time and our lookup time are separate. Rechecking cannot force Blizzard to publish a new rank.</p><p><strong>How often?</strong> Once on opening if this browser has no recent result, then hourly while visible. No calls are made while the tab is hidden. A failed lookup may leave an explicitly labelled older copy for up to seven days. Refresh requests have a one-minute cooldown and respect provider retry delays.</p><p><strong>Privacy and cost.</strong> This page has no visitor accounts, paid AI calls, advertising, or analytics code. It stores only this public player's last successful Overwatch response and request timing in your browser. Your browser contacts OverFast; the profile icon, if provided, loads from Blizzard's CDN. The hosting provider may keep its own access logs. No paid integrations are used.</p><p><strong>Other games.</strong> Gears: E-Day and Diablo IV have no verified feed connected here. D2R is an external link only; we do not call D2R.ORG's API or copy its ladder data. <a href="https://d2r.org/terms" target="_blank" rel="noopener noreferrer">D2R data-use terms ↗</a></p></div></details>
+   <details class="explainer"><summary>ABOUT THIS DISPLAY &amp; ITS DATA</summary><div class="inside"><p><strong>What is automatic?</strong> Overwatch console ranks are requested directly from the public OverFast API. This is a community service reading Blizzard's public career pages, not a live connection to the Xbox. PC ranks are never substituted.</p><p><strong>What does the season mean?</strong> The displayed season is the identifier reported by the API for the last competitive season played. It is not independently confirmed as the active season, and the identifier may differ from the in-game label.</p><p><strong>Why can a fresh lookup show older stats?</strong> Blizzard and the data provider cache updates. The profile-update time and our lookup time are separate. Rechecking cannot force Blizzard to publish a new rank.</p><p><strong>How often?</strong> Once on opening if this browser has no recent result, then hourly while visible. No calls are made while the tab is hidden. A failed lookup may leave an explicitly labelled older copy for up to seven days. Refresh requests have a one-minute cooldown and respect provider retry delays.</p><p><strong>Privacy and cost.</strong> This page has no visitor accounts, paid AI calls, advertising, or analytics code. It stores only this public player's last successful Overwatch response and request timing in your browser. Your browser contacts OverFast; the profile icon, if provided, loads from Blizzard's CDN. The hosting provider may keep its own access logs. No paid integrations are used.</p><p><strong>Gears: E-Day.</strong> This page includes a published snapshot of Xbox-reported playtime, achievements, and gamerscore retrieved through OpenXBL. It is not automatically updated. The lookup time is shown separately from last played; no stat-update timestamp was supplied. API credentials are kept off this page, and viewers do not contact OpenXBL. Rank and player level were not returned by the tested query.</p><p><strong>Other games.</strong> Diablo IV has no verified feed connected here. D2R is an external link only; we do not call D2R.ORG's API or copy its ladder data. <a href="https://d2r.org/terms" target="_blank" rel="noopener noreferrer">D2R data-use terms ↗</a></p></div></details>
   </main>
  </div>
  <div class="bottom-bar" aria-hidden="true"><span></span><span></span><span></span></div>
- <footer class="footer"><p><strong>AEGIS STARFORGE // VIEWER ACCESS</strong><br>Independent fan-made, LCARS-inspired interface. Not affiliated with Star Trek, Xbox, Blizzard, or The Coalition.</p><p>PORTABLE HTML · NO PAID DATA INTEGRATIONS<br>VERSION 1.0 · SOURCE CHECKED 15 OCT 2026</p></footer>
+ <footer class="footer"><p><strong>AEGIS STARFORGE // VIEWER ACCESS</strong><br>Independent fan-made, LCARS-inspired interface. Not affiliated with Star Trek, Xbox, Blizzard, or The Coalition.</p><p>PORTABLE HTML · NO PAID DATA INTEGRATIONS<br>VERSION 1.1 · GEARS XBOX SNAPSHOT</p></footer>
 </div>
 <noscript>JavaScript is needed to fetch current public stats and switch game sections. No ranks are prefilled. You can still visit the linked Blizzard profile.</noscript>
+<script type="application/json" id="gears-snapshot">{"schemaVersion":1,"player":"Whit3chocl3t","titleId":"1810111157","updateMode":"published-snapshot","checkedAt":"2026-10-15T16:15:18.6958657Z","sourceUpdatedAt":null,"lastPlayedAt":"2026-10-13T18:07:35.9406513Z","minutesPlayed":3116,"achievementsUnlocked":11,"gamerscore":165,"gamerscoreTotal":1000}</script>
 <script>
 'use strict';
 // DATA_MODEL_BEGIN
@@ -93,6 +111,15 @@ function validCache(value,now=Date.now()){
  if(!value||value.player!=='Whit3chocl3t-1968'||!Number.isFinite(value.fetchedAt)||value.fetchedAt>now+60000||now-value.fetchedAt>MAX_CACHE_AGE)return null;
  try{normaliseSummary(value.data,now);return value;}catch{return null;}
 }
+function normaliseGears(data,now=Date.now()){
+ if(!data||data.schemaVersion!==1||data.player!==EXPECTED_PLAYER||data.titleId!=='1810111157'||data.updateMode!=='published-snapshot')throw new Error('E-Day snapshot identity or schema mismatch.');
+ const checkedAt=Date.parse(data.checkedAt);
+ if(!Number.isFinite(checkedAt)||checkedAt>now+60000)throw new Error('E-Day snapshot timestamp is invalid.');
+ const count=value=>Number.isSafeInteger(value)&&value>=0?value:null;
+ const lastPlayed=Date.parse(data.lastPlayedAt);
+ return {minutesPlayed:count(data.minutesPlayed),achievementsUnlocked:count(data.achievementsUnlocked),gamerscore:count(data.gamerscore),gamerscoreTotal:count(data.gamerscoreTotal),checkedAt,lastPlayedAt:Number.isFinite(lastPlayed)&&lastPlayed<=checkedAt+60000?lastPlayed:null,old:now-checkedAt>24*HOUR};
+}
+function playtimeLabel(minutes){return Number.isSafeInteger(minutes)&&minutes>=0?Math.floor(minutes/60)+'h '+String(minutes%60).padStart(2,'0')+'m':'—';}
 // DATA_MODEL_END
 const API='https://overfast-api.tekrop.fr/players/Whit3chocl3t-1968/summary';
 const CACHE_KEY='aegis-player-hub:v1:Whit3chocl3t-1968';
@@ -143,15 +170,30 @@ async function refresh(manual=false){
  }finally{clearTimeout(timeout);busy=false;$('refresh').disabled=false;$('refresh').textContent='RECHECK SOURCE';}
 }
 const games={
- gears:{title:'GEARS OF WAR: E-DAY',description:'Xbox playlist ranks and progression.',status:'NO VERIFIED AUTOMATIC FEED',fields:['Playlist rank','Skill division','Player progression'],text:'No automatic E-Day player-stat source is connected to this dashboard. The game’s ranking systems do not, by themselves, provide a public feed that this page can read. These fields remain empty instead of showing estimates.',link:'https://www.gearsofwar.com/en-us/news/multiplayer/',linkText:'OFFICIAL MULTIPLAYER DETAILS ↗'},
+ gears:{title:'GEARS OF WAR: E-DAY',description:'Verified Xbox playtime and achievements. Published snapshot; ranked progression is not available.'},
  diablo4:{title:'DIABLO IV',description:'Character levels, classes, and Paragon progression.',status:'CHARACTER DATA NOT CONNECTED',fields:['Character','Character level','Paragon'],text:'A dependable automatic character-data source has not been verified for this Xbox account. This page does not guess your active character, mode, level, or Hardcore status. No paid character-tracking service is attached.',link:'https://diablo4.blizzard.com/',linkText:'OFFICIAL DIABLO IV SITE ↗'},
  d2r:{title:'DIABLO II: RESURRECTED',description:'Ladder character levels and placement.',status:'EXTERNAL LADDER · NOT CONNECTED',fields:['Ladder character','Character level','Ladder placement'],text:'D2R.ORG offers an external ladder tracker. Its terms require permission before importing or republishing its data, so this dashboard links to it without scraping it. Your account’s ladder characters have not been matched or verified here.',link:'https://d2r.org/ladder',linkText:'OPEN EXTERNAL LADDER ↗'}
 };
+function renderGears(){
+ try{
+  const data=normaliseGears(JSON.parse($('gears-snapshot').textContent));
+  $('gears-playtime').textContent=playtimeLabel(data.minutesPlayed);
+  $('gears-achievements').textContent=data.achievementsUnlocked??'—';
+  $('gears-gamerscore').textContent=data.gamerscore===null?'—':data.gamerscore+(data.gamerscoreTotal>0?' / '+data.gamerscoreTotal:'');
+  $('gears-checked').textContent=formatDate(data.checkedAt);$('gears-last-played').textContent=formatDate(data.lastPlayedAt);
+  $('gears-badge').textContent=data.old?'SNAPSHOT OLDER THAN 24 HOURS':'PUBLISHED SNAPSHOT · NOT LIVE';
+  $('gears-overview').textContent=playtimeLabel(data.minutesPlayed)+' recorded · '+(data.achievementsUnlocked??'—')+' achievements. Saved '+formatDate(data.checkedAt)+'. Not automatically updated.';
+ }catch{
+  $('gears-badge').textContent='SNAPSHOT UNAVAILABLE';$('gears-overview').textContent='The saved Xbox snapshot could not be verified. No values are assumed.';
+  $('gears-update-status').textContent='The E-Day snapshot is missing or invalid. No values have been filled in.';
+ }
+}
 function showView(view,moveFocus=false){
  if(!['overview','overwatch','gears','diablo4','d2r'].includes(view))view='overview';
  for(const button of document.querySelectorAll('.navbutton')){if(button.dataset.view===view)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');}
- $('overwatch-panel').hidden=!!games[view];$('other-games').hidden=view!=='overview';$('game-detail').hidden=!games[view];
- if(games[view]){const game=games[view];$('view-title').textContent=game.title;$('view-description').textContent=game.description;$('detail-name').textContent=game.title;$('detail-status').textContent=game.status;$('detail-text').textContent=game.text;$('detail-link').href=game.link;$('detail-link').textContent=game.linkText;$('detail-fields').replaceChildren(...game.fields.map(label=>{const el=document.createElement('div');el.className='empty-field';el.textContent=label;const value=document.createElement('b');value.textContent='—';el.append(value);return el;}));}
+ $('overwatch-panel').hidden=!!games[view];$('other-games').hidden=view!=='overview';$('gears-panel').hidden=view!=='gears';$('game-detail').hidden=!games[view]||view==='gears';
+ if(view==='gears'){$('view-title').textContent=games.gears.title;$('view-description').textContent=games.gears.description;}
+ else if(games[view]){const game=games[view];$('view-title').textContent=game.title;$('view-description').textContent=game.description;$('detail-name').textContent=game.title;$('detail-status').textContent=game.status;$('detail-text').textContent=game.text;$('detail-link').href=game.link;$('detail-link').textContent=game.linkText;$('detail-fields').replaceChildren(...game.fields.map(label=>{const el=document.createElement('div');el.className='empty-field';el.textContent=label;const value=document.createElement('b');value.textContent='—';el.append(value);return el;}));}
  else{$('view-title').textContent=view==='overwatch'?'COMPETITIVE RECORD':'THE CURRENT PICTURE';$('view-description').textContent=view==='overwatch'?'Overwatch · console ranks only. The season and timestamps come from the public source.':'Follow the climb. Console ranks and character progress, with the data source always in view.';}
  if(moveFocus)$('main').focus({preventScroll:true});
 }
@@ -159,7 +201,7 @@ for(const button of document.querySelectorAll('[data-view]'))button.addEventList
 window.addEventListener('hashchange',()=>showView(location.hash.slice(1)));
 $('refresh').addEventListener('click',()=>refresh(true));
 function clock(){const now=new Date();$('clock').dateTime=now.toISOString();$('clock').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',hour12:false,timeZoneName:'short'}).format(now);}
-showView(location.hash.slice(1));clock();setInterval(clock,60000);if(cache)render(true);refresh();setInterval(()=>refresh(),60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden){clock();refresh();}});
+renderGears();showView(location.hash.slice(1));clock();setInterval(clock,60000);if(cache)render(true);refresh();setInterval(()=>refresh(),60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden){clock();renderGears();refresh();}});
 </script>
 </body>
 </html>
