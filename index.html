@@ -46,26 +46,26 @@
      </div>
      <div class="telemetry"><div><div class="datum-label">PROFILE LAST UPDATED BY BLIZZARD</div><div class="datum-value" id="source-time">Not yet available</div></div><div><div class="datum-label">LAST SUCCESSFUL LOOKUP</div><div class="datum-value" id="checked-time">No successful lookup yet</div></div></div>
      <p class="notice" id="lookup-status" role="status" aria-live="polite">Requesting the public profile. No rank is shown until the source supplies one.</p>
-     <div class="source-row" style="margin:19px 0 0"><button class="button" id="refresh">RECHECK SOURCE</button><small id="refresh-note" style="color:var(--muted)">Automatic recheck: hourly while this page is open.</small></div>
+     <div class="source-row" style="margin:19px 0 0"><button class="button" id="refresh">RECHECK SOURCE</button><small id="refresh-note" style="color:var(--muted)">Checks when opened · source limits still apply.</small></div>
      <div class="panel-links"><a href="https://overwatch.blizzard.com/en-us/career/Whit3chocl3t-1968/" target="_blank" rel="noopener noreferrer">Blizzard career profile ↗</a><a href="https://overfast-api.tekrop.fr/" target="_blank" rel="noopener noreferrer">Data via OverFast ↗</a></div>
     </div>
    </section>
    <section class="game-grid" id="other-games" aria-label="Other game connections">
-    <article class="game"><span class="index">03 // XBOX</span><h3>GEARS OF WAR: E-DAY</h3><span class="status">XBOX DATA · PUBLISHED SNAPSHOT</span><p id="gears-overview">Loading the verified Xbox snapshot. Ranks and player level are not supplied.</p><button data-view="gears">VIEW E-DAY RECORD →</button></article>
+    <article class="game"><span class="index">03 // XBOX</span><h3>GEARS OF WAR: E-DAY</h3><span class="status" id="gears-overview-status">CHECKING XBOX DATA</span><p id="gears-overview">Requesting the latest available Xbox stats. Rank and player level are not supplied.</p><button data-view="gears">VIEW E-DAY RECORD →</button></article>
     <article class="game"><span class="index">04 // XBOX</span><h3>DIABLO IV</h3><span class="status">CHARACTER DATA NOT CONNECTED</span><p>Character levels and Paragon await a usable source. No character values are assumed.</p><button data-view="diablo4">VIEW CONNECTION DETAILS →</button></article>
     <article class="game"><span class="index">05 // XBOX</span><h3>DIABLO II: RESURRECTED</h3><span class="status">LADDER LINK · NOT A DATA FEED</span><p>External ladder information is available. This hub does not import or republish it.</p><button data-view="d2r">VIEW CONNECTION DETAILS →</button></article>
    </section>
    <section id="gears-panel" class="datapanel" hidden aria-labelledby="gears-heading">
     <div class="panel-head" style="background:var(--orange)"><h3 id="gears-heading">GEARS OF WAR: E-DAY</h3><span class="code">XBOX RECORD // 03</span></div>
     <div class="panel-body">
-     <div class="source-row"><div class="source-name"><div><strong>Whit3chocl3t</strong><small>Xbox-reported title statistics · via OpenXBL</small></div></div><span class="badge" id="gears-badge">PUBLISHED SNAPSHOT</span></div>
+     <div class="source-row"><div class="source-name"><div><strong>Whit3chocl3t</strong><small>Xbox-reported title statistics · via OpenXBL</small></div></div><span class="badge" id="gears-badge">CHECKING LATEST STATS</span></div>
      <div class="detail-grid" style="margin-top:0" aria-label="Verified E-Day statistics">
       <div class="rank"><div class="rank-label">RECORDED PLAYTIME</div><div class="rank-value" id="gears-playtime">—</div><div class="rank-note">Xbox MinutesPlayed · not a live session timer</div></div>
       <div class="rank"><div class="rank-label">ACHIEVEMENTS UNLOCKED</div><div class="rank-value" id="gears-achievements">—</div><div class="rank-note">Unlocked count · not player level</div></div>
       <div class="rank"><div class="rank-label">GAME GAMERSCORE</div><div class="rank-value" id="gears-gamerscore">—</div><div class="rank-note">Earned / reported available gamerscore</div></div>
      </div>
      <div class="telemetry"><div><div class="datum-label">XBOX DATA RETRIEVED</div><div class="datum-value" id="gears-checked">Not available</div></div><div><div class="datum-label">LAST PLAYED · REPORTED BY XBOX</div><div class="datum-value" id="gears-last-played">Not available</div></div></div>
-     <p class="notice" id="gears-update-status" role="status">This is a published snapshot, not an automatic or live feed. Reloading this page does not query Xbox. Values change when the owner retrieves and publishes a newer snapshot. The source did not supply an update timestamp for these individual stats.</p>
+     <p class="notice" id="gears-update-status" role="status" aria-live="polite">Checking the latest available Xbox stats. Previously saved values are labelled until a new lookup succeeds.</p><div class="source-row" style="margin:19px 0 0"><button class="button" id="gears-refresh">RECHECK XBOX</button><small style="color:var(--muted)">Checks when this link opens · no viewer sign-in.</small></div>
      <h3 style="font:24px var(--condensed);letter-spacing:1px;margin:27px 0 0;color:var(--lilac)">RANK &amp; LEVEL · NOT RETURNED BY SOURCE</h3>
      <div class="detail-grid" aria-label="Unavailable E-Day progression"><div class="empty-field">Playlist rank<b>—</b></div><div class="empty-field">Skill division<b>—</b></div><div class="empty-field">Player level / Re-Up<b>—</b></div></div>
      <p class="intro">The tested Xbox statistics query returned playtime, but no ranked division, player level, or Re-Up. These are unavailable—not zero or unranked. Achievement progress is never substituted for game progression.</p>
@@ -73,13 +73,14 @@
     </div>
    </section>
    <section id="game-detail" class="detail" hidden aria-label="Selected game connection"><div class="datapanel"><div class="panel-head"><h3 id="detail-name"></h3><span class="code">CONNECTION STATUS</span></div><div class="panel-body"><span class="badge" id="detail-status"></span><div class="detail-grid" id="detail-fields"></div><h3>NO GUESSWORK ON THE DISPLAY.</h3><p id="detail-text"></p><a class="button secondary" id="detail-link" target="_blank" rel="noopener noreferrer"></a><p style="font-size:12px">A dash means unavailable—not level zero, an unranked account, or a fallen character.</p></div></div></section>
-   <details class="explainer"><summary>ABOUT THIS DISPLAY &amp; ITS DATA</summary><div class="inside"><p><strong>What is automatic?</strong> Overwatch console ranks are requested directly from the public OverFast API. This is a community service reading Blizzard's public career pages, not a live connection to the Xbox. PC ranks are never substituted.</p><p><strong>What does the season mean?</strong> The displayed season is the identifier reported by the API for the last competitive season played. It is not independently confirmed as the active season, and the identifier may differ from the in-game label.</p><p><strong>Why can a fresh lookup show older stats?</strong> Blizzard and the data provider cache updates. The profile-update time and our lookup time are separate. Rechecking cannot force Blizzard to publish a new rank.</p><p><strong>How often?</strong> Once on opening if this browser has no recent result, then hourly while visible. No calls are made while the tab is hidden. A failed lookup may leave an explicitly labelled older copy for up to seven days. Refresh requests have a one-minute cooldown and respect provider retry delays.</p><p><strong>Privacy and cost.</strong> This page has no visitor accounts, paid AI calls, advertising, or analytics code. It stores only this public player's last successful Overwatch response and request timing in your browser. Your browser contacts OverFast; the profile icon, if provided, loads from Blizzard's CDN. The hosting provider may keep its own access logs. No paid integrations are used.</p><p><strong>Gears: E-Day.</strong> This page includes a published snapshot of Xbox-reported playtime, achievements, and gamerscore retrieved through OpenXBL. It is not automatically updated. The lookup time is shown separately from last played; no stat-update timestamp was supplied. API credentials are kept off this page, and viewers do not contact OpenXBL. Rank and player level were not returned by the tested query.</p><p><strong>Other games.</strong> Diablo IV has no verified feed connected here. D2R is an external link only; we do not call D2R.ORG's API or copy its ladder data. <a href="https://d2r.org/terms" target="_blank" rel="noopener noreferrer">D2R data-use terms ↗</a></p></div></details>
+   <details class="explainer"><summary>ABOUT THIS DISPLAY &amp; ITS DATA</summary><div class="inside"><p><strong>What is automatic?</strong> Overwatch console ranks are requested directly from the public OverFast API. This is a community service reading Blizzard's public career pages, not a live connection to the Xbox. PC ranks are never substituted.</p><p><strong>What does the season mean?</strong> The displayed season is the identifier reported by the API for the last competitive season played. It is not independently confirmed as the active season, and the identifier may differ from the in-game label.</p><p><strong>Why can a fresh lookup show older stats?</strong> Blizzard and the data provider cache updates. The profile-update time and our lookup time are separate. Rechecking cannot force Blizzard to publish a new rank.</p><p><strong>How often?</strong> Overwatch requests a new lookup whenever this page opens, subject to provider retry delays; it also rechecks hourly while visible. Gears requests our private Xbox backend when the page opens. Nearby simultaneous visits may share a lookup, and service limits can require saved data. The display always keeps the actual successful-lookup timestamp. Saved data expires after seven days.</p><p><strong>Privacy and cost.</strong> This page has no visitor accounts, paid AI calls, advertising, or analytics code. It stores this public player's last successful game-stat responses and request timing in your browser. Your browser contacts OverFast and our private stats backend; the profile icon, if provided, loads from Blizzard's CDN. The Xbox key stays on the server and is never delivered to viewers. The hosting provider may keep its own access logs. No paid integrations are used.</p><p><strong>Gears: E-Day.</strong> Opening this page requests Xbox-reported playtime, achievements, and gamerscore through a private OpenXBL backend. It does not require the owner’s PC to be on. A successful request means the latest values the source returned, not guaranteed instant in-game changes. Closely spaced requests (15 seconds), service failures, or the free-tier request limit can return clearly labelled saved data. The source does not supply an individual stat-update timestamp. Rank and player level were not returned by the tested query.</p><p><strong>Other games.</strong> Diablo IV has no verified feed connected here. D2R is an external link only; we do not call D2R.ORG's API or copy its ladder data. <a href="https://d2r.org/terms" target="_blank" rel="noopener noreferrer">D2R data-use terms ↗</a></p></div></details>
   </main>
  </div>
  <div class="bottom-bar" aria-hidden="true"><span></span><span></span><span></span></div>
- <footer class="footer"><p><strong>AEGIS STARFORGE // VIEWER ACCESS</strong><br>Independent fan-made, LCARS-inspired interface. Not affiliated with Star Trek, Xbox, Blizzard, or The Coalition.</p><p>PORTABLE HTML · NO PAID DATA INTEGRATIONS<br>VERSION 1.1 · GEARS XBOX SNAPSHOT</p></footer>
+ <footer class="footer"><p><strong>AEGIS STARFORGE // VIEWER ACCESS</strong><br>Independent fan-made, LCARS-inspired interface. Not affiliated with Star Trek, Xbox, Blizzard, or The Coalition.</p><p>PORTABLE HTML · NO PAID DATA INTEGRATIONS<br>VERSION 1.2 · REFRESH ON OPEN</p></footer>
 </div>
 <noscript>JavaScript is needed to fetch current public stats and switch game sections. No ranks are prefilled. You can still visit the linked Blizzard profile.</noscript>
+<script type="application/json" id="telemetry-config">{"gearsEndpoint":"https://lcars-gears-refresh.ffgowfan.workers.dev/api/gears"}</script>
 <script type="application/json" id="gears-snapshot">{"schemaVersion":1,"player":"Whit3chocl3t","titleId":"1810111157","updateMode":"published-snapshot","checkedAt":"2026-10-15T16:15:18.6958657Z","sourceUpdatedAt":null,"lastPlayedAt":"2026-10-13T18:07:35.9406513Z","minutesPlayed":3116,"achievementsUnlocked":11,"gamerscore":165,"gamerscoreTotal":1000}</script>
 <script>
 'use strict';
@@ -112,7 +113,7 @@ function validCache(value,now=Date.now()){
  try{normaliseSummary(value.data,now);return value;}catch{return null;}
 }
 function normaliseGears(data,now=Date.now()){
- if(!data||data.schemaVersion!==1||data.player!==EXPECTED_PLAYER||data.titleId!=='1810111157'||data.updateMode!=='published-snapshot')throw new Error('E-Day snapshot identity or schema mismatch.');
+ if(!data||data.schemaVersion!==1||data.player!==EXPECTED_PLAYER||data.titleId!=='1810111157'||!['published-snapshot','on-open'].includes(data.updateMode))throw new Error('E-Day snapshot identity or schema mismatch.');
  const checkedAt=Date.parse(data.checkedAt);
  if(!Number.isFinite(checkedAt)||checkedAt>now+60000)throw new Error('E-Day snapshot timestamp is invalid.');
  const count=value=>Number.isSafeInteger(value)&&value>=0?value:null;
@@ -125,7 +126,7 @@ const API='https://overfast-api.tekrop.fr/players/Whit3chocl3t-1968/summary';
 const CACHE_KEY='aegis-player-hub:v1:Whit3chocl3t-1968';
 const RETRY_KEY=CACHE_KEY+':retry';
 const $=id=>document.getElementById(id);
-const dateFormat=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});
+const dateFormat=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',second:'2-digit',timeZoneName:'short'});
 let cache=null,busy=false,lastAttempt=0,nextAllowed=0,hadError=false;
 try{cache=validCache(JSON.parse(localStorage.getItem(CACHE_KEY)));const retry=Number(localStorage.getItem(RETRY_KEY));if(Number.isFinite(retry)&&retry>Date.now()&&retry<Date.now()+24*HOUR)nextAllowed=retry;}catch{}
 function formatDate(time){return time?dateFormat.format(new Date(time)):'Not provided by the source';}
@@ -143,16 +144,16 @@ function render(fromCache=false){
  const note=!data.hasConsole?'This public profile did not supply console competitive ranks. A missing value is not an unranked result.':age.old?'Blizzard’s published profile is older than 24 hours or has no timestamp. These are the latest values returned, not confirmed current in-game ranks.':'Showing the latest published console ranks. Public profiles can lag behind in-game changes.';
  announce(note+(fromCache?' Loaded from this browser’s last successful lookup.':''));
 }
-async function refresh(manual=false){
+async function refresh(manual=false,opening=false){
  const now=Date.now();
  if(busy||document.hidden)return;
- if(now<nextAllowed){if(manual)announce('The next source request is available after '+formatDate(nextAllowed)+'. This pause protects the public data service.',hadError);return;}
+ if(now<nextAllowed){if(manual||opening)announce('The next source request is available after '+formatDate(nextAllowed)+'. This pause protects the public data service.',hadError);return;}
  if(manual&&now-lastAttempt<60000){announce('Please allow one minute between requests. The source may still return its cached profile.',hadError);return;}
- if(!manual&&cache&&now-cache.fetchedAt<HOUR)return;
- busy=true;lastAttempt=now;$('refresh').disabled=true;$('refresh').textContent='CHECKING…';
+ if(!manual&&!opening&&cache&&now-cache.fetchedAt<HOUR)return;
+ busy=true;lastAttempt=now;$('refresh').disabled=true;$('refresh').textContent='CHECKING…';$('source-badge').textContent='CHECKING LATEST STATS';announce('Checking the source now.'+(cache?' Previously saved ranks remain visible until this lookup finishes.':''));
  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),20000);
  try{
-  const response=await fetch(API,{signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer'});
+  const response=await fetch(API,{signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store'});
   if(!response.ok){
    if(response.status===403||response.status===404){clearStats();$('source-badge').textContent=response.status===403?'PROFILE UNAVAILABLE':'PROFILE NOT FOUND';$('source-badge').classList.remove('ok');}
    const retry=response.headers.get('Retry-After');const seconds=Number(retry);const retryDate=Date.parse(retry||'');const delay=retry&&Number.isFinite(seconds)?seconds*1000:Number.isFinite(retryDate)?retryDate-now:HOUR;
@@ -170,24 +171,63 @@ async function refresh(manual=false){
  }finally{clearTimeout(timeout);busy=false;$('refresh').disabled=false;$('refresh').textContent='RECHECK SOURCE';}
 }
 const games={
- gears:{title:'GEARS OF WAR: E-DAY',description:'Verified Xbox playtime and achievements. Published snapshot; ranked progression is not available.'},
+ gears:{title:'GEARS OF WAR: E-DAY',description:'Xbox playtime and achievements, checked when you open this page. Ranked progression is not supplied.'},
  diablo4:{title:'DIABLO IV',description:'Character levels, classes, and Paragon progression.',status:'CHARACTER DATA NOT CONNECTED',fields:['Character','Character level','Paragon'],text:'A dependable automatic character-data source has not been verified for this Xbox account. This page does not guess your active character, mode, level, or Hardcore status. No paid character-tracking service is attached.',link:'https://diablo4.blizzard.com/',linkText:'OFFICIAL DIABLO IV SITE ↗'},
  d2r:{title:'DIABLO II: RESURRECTED',description:'Ladder character levels and placement.',status:'EXTERNAL LADDER · NOT CONNECTED',fields:['Ladder character','Character level','Ladder placement'],text:'D2R.ORG offers an external ladder tracker. Its terms require permission before importing or republishing its data, so this dashboard links to it without scraping it. Your account’s ladder characters have not been matched or verified here.',link:'https://d2r.org/ladder',linkText:'OPEN EXTERNAL LADDER ↗'}
 };
-function renderGears(){
- try{
-  const data=normaliseGears(JSON.parse($('gears-snapshot').textContent));
-  $('gears-playtime').textContent=playtimeLabel(data.minutesPlayed);
-  $('gears-achievements').textContent=data.achievementsUnlocked??'—';
-  $('gears-gamerscore').textContent=data.gamerscore===null?'—':data.gamerscore+(data.gamerscoreTotal>0?' / '+data.gamerscoreTotal:'');
-  $('gears-checked').textContent=formatDate(data.checkedAt);$('gears-last-played').textContent=formatDate(data.lastPlayedAt);
-  $('gears-badge').textContent=data.old?'SNAPSHOT OLDER THAN 24 HOURS':'PUBLISHED SNAPSHOT · NOT LIVE';
-  $('gears-overview').textContent=playtimeLabel(data.minutesPlayed)+' recorded · '+(data.achievementsUnlocked??'—')+' achievements. Saved '+formatDate(data.checkedAt)+'. Not automatically updated.';
- }catch{
-  $('gears-badge').textContent='SNAPSHOT UNAVAILABLE';$('gears-overview').textContent='The saved Xbox snapshot could not be verified. No values are assumed.';
-  $('gears-update-status').textContent='The E-Day snapshot is missing or invalid. No values have been filled in.';
- }
+const GEARS_CACHE_KEY='aegis-player-hub:eday:v2';
+let gearsData=null,gearsBusy=false,gearsAttempted=false;
+try{const saved=JSON.parse(localStorage.getItem(GEARS_CACHE_KEY));const checked=normaliseGears(saved);if(Date.now()-checked.checkedAt<=MAX_CACHE_AGE)gearsData=saved;}catch{}
+if(!gearsData){try{const saved=JSON.parse($('gears-snapshot').textContent);const checked=normaliseGears(saved);if(Date.now()-checked.checkedAt<=MAX_CACHE_AGE)gearsData=saved;}catch{}}
+function gearsMessage(text,badge,error=false){
+ $('gears-update-status').textContent=text;$('gears-update-status').classList.toggle('error',error);
+ $('gears-badge').textContent=badge;$('gears-overview-status').textContent=badge;
+ $('gears-badge').classList.toggle('ok',badge==='LATEST RETURNED STATS');
 }
+function renderGears(){
+ let data=null;try{if(gearsData){const candidate=normaliseGears(gearsData);if(Date.now()-candidate.checkedAt<=MAX_CACHE_AGE)data=candidate;}}catch{}
+ if(!data){gearsData=null;$('gears-playtime').textContent='—';$('gears-achievements').textContent='—';$('gears-gamerscore').textContent='—';$('gears-checked').textContent='No usable lookup';$('gears-last-played').textContent='Not available';$('gears-overview').textContent='No usable saved stats. Awaiting a successful lookup.';return;}
+ $('gears-playtime').textContent=playtimeLabel(data.minutesPlayed);
+ $('gears-achievements').textContent=data.achievementsUnlocked??'—';
+ $('gears-gamerscore').textContent=data.gamerscore===null?'—':data.gamerscore+(data.gamerscoreTotal>0?' / '+data.gamerscoreTotal:'');
+ $('gears-checked').textContent=formatDate(data.checkedAt);$('gears-last-played').textContent=formatDate(data.lastPlayedAt);
+ $('gears-overview').textContent=playtimeLabel(data.minutesPlayed)+' recorded · '+(data.achievementsUnlocked??'—')+' achievements. Last successful lookup: '+formatDate(data.checkedAt)+'.';
+}
+function gearsEndpoint(){
+ const value=JSON.parse($('telemetry-config').textContent).gearsEndpoint;
+ if(!value)return null;
+ const url=new URL(value);
+ if(url.protocol!=='https:'||url.username||url.password||url.search||url.hash||url.pathname!=='/api/gears')throw new Error('Invalid endpoint configuration.');
+ return url.href;
+}
+async function refreshGears(){
+ if(gearsBusy||document.hidden)return;
+ gearsAttempted=true;
+ let endpoint;try{endpoint=gearsEndpoint();}catch{gearsMessage('The stats endpoint is not configured correctly. Saved values are not a fresh lookup.','CONNECTION UNAVAILABLE',true);return;}
+ if(!endpoint){gearsMessage('The private refresh endpoint has not been deployed. These are saved values, not a new Xbox lookup.','SAVED DATA · NOT CONNECTED',true);return;}
+ gearsBusy=true;$('gears-refresh').disabled=true;$('gears-refresh').textContent='CHECKING…';
+ gearsMessage('Checking the latest Xbox stats now.'+(gearsData?' Saved values remain visible until this request finishes.':''),'CHECKING LATEST STATS');
+ const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),30000);
+ try{
+  const response=await fetch(endpoint,{cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer',signal:controller.signal});
+  if(!response.ok)throw new Error('The stats service could not complete this request.');
+  const result=await response.json();
+  if(!['fresh','saved','unavailable'].includes(result.status))throw new Error('The stats response could not be verified.');
+  if(result.status==='fresh'&&!result.data)throw new Error('The stats response was incomplete.');
+  if(result.data){const verified=normaliseGears(result.data);if(result.data.updateMode!=='on-open'||(result.status==='fresh'&&Math.abs(Date.now()-verified.checkedAt)>60000))throw new Error('Unexpected stats response.');gearsData=result.data;try{localStorage.setItem(GEARS_CACHE_KEY,JSON.stringify(gearsData));}catch{}}
+  renderGears();
+  if(result.status==='fresh'){
+   gearsMessage('Checked just now: these are the latest values returned by Xbox through OpenXBL. The source may lag your game; it did not supply individual stat-update timestamps.','LATEST RETURNED STATS');
+  }else{
+   const reasons={RECENT_REQUEST:'A lookup was made within the last 15 seconds; sharing its result avoids duplicate requests.',FREE_QUOTA:'The free-tier lookup allowance is temporarily reserved or exhausted.',PROVIDER_LIMIT:'The data provider has temporarily rate-limited requests.',NOT_CONFIGURED:'The private stats service is not configured.',SOURCE_AUTHENTICATION:'The data provider could not authenticate the private connection.',IDENTITY_MISMATCH:'The account response could not be verified.',TITLE_UNAVAILABLE:'The source did not return the expected E-Day title.',STATS_UNAVAILABLE:'The source did not return complete E-Day stats.'};
+   const retry=Date.parse(result.retryAt);const next=Number.isFinite(retry)&&retry>Date.now()?' Another lookup can be attempted after '+formatDate(retry)+'.':'';
+   gearsMessage((reasons[result.reason]||'The source could not complete a fresh lookup.')+(gearsData?' Showing saved stats with their original lookup timestamp.':' No usable saved stats are available.')+next,gearsData?'SAVED STATS · SEE TIMESTAMP':'SOURCE UNAVAILABLE',result.reason!=='RECENT_REQUEST');
+  }
+ }catch(error){
+  renderGears();gearsMessage((error.name==='AbortError'?'The Xbox lookup timed out.':'The Xbox lookup could not be completed.')+(gearsData?' Showing saved stats with their original lookup timestamp.':' No stats have been assumed.'),gearsData?'LOOKUP FAILED · SAVED STATS':'SOURCE UNAVAILABLE',true);
+ }finally{clearTimeout(timeout);gearsBusy=false;$('gears-refresh').disabled=false;$('gears-refresh').textContent='RECHECK XBOX';}
+}
+
 function showView(view,moveFocus=false){
  if(!['overview','overwatch','gears','diablo4','d2r'].includes(view))view='overview';
  for(const button of document.querySelectorAll('.navbutton')){if(button.dataset.view===view)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');}
@@ -200,8 +240,9 @@ function showView(view,moveFocus=false){
 for(const button of document.querySelectorAll('[data-view]'))button.addEventListener('click',()=>{const view=button.dataset.view;try{history.replaceState(null,'','#'+view);}catch{}showView(view,true);});
 window.addEventListener('hashchange',()=>showView(location.hash.slice(1)));
 $('refresh').addEventListener('click',()=>refresh(true));
+$('gears-refresh').addEventListener('click',()=>refreshGears());
 function clock(){const now=new Date();$('clock').dateTime=now.toISOString();$('clock').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',hour12:false,timeZoneName:'short'}).format(now);}
-renderGears();showView(location.hash.slice(1));clock();setInterval(clock,60000);if(cache)render(true);refresh();setInterval(()=>refresh(),60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden){clock();renderGears();refresh();}});
+renderGears();showView(location.hash.slice(1));clock();setInterval(clock,60000);if(cache)render(true);refresh(false,true);refreshGears();setInterval(()=>refresh(),60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden){clock();refresh(false,lastAttempt===0);if(!gearsAttempted)refreshGears();}});window.addEventListener('pageshow',event=>{if(event.persisted){refresh(false,true);refreshGears();}});
 </script>
 </body>
 </html>
